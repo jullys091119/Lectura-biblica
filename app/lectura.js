@@ -14,7 +14,7 @@ export default function LecturaBiblica() {
   return (
     <div className="max-w-3xl mx-auto p-6">
       {lectura.map((parrafo, i) => (
-        <p key={i} className="mb-6 text-lg leading-relaxed">
+        <p key={i} className="text-lg leading-relaxed" style={{marginBottom: 200}}>
           {parrafo}
         </p>
       ))}
