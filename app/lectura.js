@@ -1,22 +1,16 @@
-export const dynamic = "force-static";
-
-import React from "react";
-
-const lectura = [
-  "Jehová dice: “Este pueblo se acerca a mí solo de palabra y me honra de labios para afuera, pero su corazón está muy lejos de mí, y su temor a mí se basa en mandatos de hombres, mandatos que les han enseñado.”",
-  "Por lo tanto, yo soy el que volverá a hacer cosas sorprendentes con este pueblo, una cosa impresionante tras otra; la sabiduría de sus sabios se acabará y el entendimiento de sus hombres prudentes desaparecerá.",
-  "¡Ay de los que hacen todo lo posible por ocultar de Jehová sus planes! Hacen las cosas en un lugar oscuro mientras dicen: “¿Quién nos ve? ¿Quién sabe lo que hacemos?”.",
-  "¡Cómo distorsionan ustedes las cosas! ¿Acaso se puede considerar que el alfarero es igual que el barro? ¿Acaso puede la cosa hecha decir de su creador “Él no me hizo”? ¿Puede un objeto moldeado decir del que lo moldeó “Él no entiende nada”?",
-  "Dentro de muy poco tiempo, el Líbano será convertido en un huerto y el huerto será considerado un bosque.",
-  "Ese día los sordos oirán las palabras del libro y, libres de las tinieblas y la oscuridad, los ojos de los ciegos verán.",
-  "Los mansos se alegrarán muchísimo por causa de Jehová y la gente pobre estará muy feliz por causa del Santo de Israel.",
-  "Porque los tiranos desaparecerán y los fanfarrones llegarán a su fin, y todos los que siempre están listos para hacer daño serán destruidos, aquellos que con palabras falsas culpan a otros, los que le ponen trampas al que presenta una defensa en la puerta de la ciudad y los que con argumentos vacíos le niegan la justicia al justo.",
-  "Por lo tanto, Jehová, el que rescató a Abrahán, le dice a la casa de Jacob: “Jacob ya no se avergonzará y su rostro ya no se pondrá pálido.”",
-  "Porque, cuando él vea a sus hijos, la obra de mis manos, en medio de él, santificarán mi nombre, sí, santificarán al Santo de Jacob y mostrarán reverencia al Dios de Israel.",
-  "Los descarriados de espíritu conseguirán entendimiento y los que se quejan se dejarán instruir."
-];
+"use client";
+import React, { useEffect, useState } from "react";
 
 export default function LecturaBiblica() {
+  const [lectura, setLectura] = useState([]);
+
+  useEffect(() => {
+    fetch("/lectura.json")
+      .then((res) => res.json())
+      .then((data) => setLectura(data))
+      .catch((err) => console.error("Error cargando lectura:", err));
+  }, []);
+
   return (
     <div className="max-w-3xl mx-auto p-6">
       {lectura.map((parrafo, i) => (
