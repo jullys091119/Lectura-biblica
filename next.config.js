@@ -8,8 +8,14 @@ const withPWA = require("next-pwa")({
 module.exports = withPWA({
   reactStrictMode: true,
   pwa: {
-    fallbacks: {
-      document: "/offline",
-    },
+    runtimeCaching: [
+      {
+        urlPattern: /^\/$/,
+        handler: "CacheFirst",
+        options: {
+          cacheName: "start-url",
+        },
+      },
+    ],
   },
 });

@@ -1,4 +1,5 @@
-"use client";
+export const dynamic = "force-static";
+
 import React from "react";
 
 const lectura = [

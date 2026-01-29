@@ -1,6 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Head from "next/head";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,20 +14,17 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Lectura Bíblica",
   description: "Lectura bíblica para tu congregación",
+  manifest: "/manifest.json",
+};
+
+export const viewport = {
+  themeColor: "#9B3E82",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="es">
-      <Head>
-        <title>{metadata.title}</title>
-        <meta name="description" content={metadata.description} />
-        <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#9B3E82" />
-      </Head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {children}
       </body>
     </html>
