@@ -9,3 +9,4 @@ module.exports = withPWA({
   reactStrictMode: true,
   turbopack: {},
 });
+console.log("NEXT CONFIG LOADED - PWA");
